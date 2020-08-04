@@ -37,6 +37,7 @@ exports.postAddProduct = (req, res, next) => {
     product
         .save()
         .then((result) => {
+            console.log(result)
             res.redirect("/");
         })
         .catch((err) => {
