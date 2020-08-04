@@ -110,7 +110,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-    .connect("mongodb://localhost:27017/node_shop_revise", {
+    .connect("mongodb://shopper:shopper1@ds053539.mlab.com:53539/shop-in-node", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
