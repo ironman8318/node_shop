@@ -92,7 +92,7 @@ exports.postCart = (req, res, next) => {
         .addToCart(prodId)
         .then((result) => {
             console.log(result.cart.items);
-            res.redirect("/order");
+            res.redirect("/");
         })
         .catch((err) => {
             const error = new Error(err);
@@ -106,6 +106,7 @@ exports.getCart = (req, res, next) => {
         .populate("cart.items.productId")
         .execPopulate()
         .then((prods) => {
+        console.log(prods)
             res.render("shop/cart", {
                 pageTitle: "Your Cart",
                 path: "/cart",
@@ -130,8 +131,8 @@ exports.getCheckout = (req, res, next) => {
 
 exports.getOrders = (req, res, next) => {
     Order.find({
-        "user.userId": req.user._id,
-    })
+            "user.userId": req.user._id,
+        })
         .then((result) => {
             let fetchedOrders = result.map((el) => {
                 return {
@@ -225,9 +226,9 @@ exports.getInvoice = (req, res, next) => {
     const id = req.params.id;
     const invoiceName = "invoice-" + id + ".pdf";
     Order.findOne({
-        _id: id,
-        "user.userId": req.user._id,
-    })
+            _id: id,
+            "user.userId": req.user._id,
+        })
         .then((order) => {
             const p = path.join(__dirname, "..", "data", invoiceName);
             const pdfDoc = new pdfDocument();
