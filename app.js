@@ -21,7 +21,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 const store = new mongoSessionStore({
-    uri: "mongodb://localhost:27017/node_shop_revise",
+    uri: "mongodb://shop:shop1234@ds139781.mlab.com:39781/node-shop",
     collection: "session",
 });
 
@@ -110,10 +110,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-    .connect("mongodb://shop:shop1234@ds139781.mlab.com:39781/node-shop", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    .connect("mongodb://shop:shop1234@ds139781.mlab.com:39781/node-shop")
     .then((res) => {
         app.listen(3000);
     })
