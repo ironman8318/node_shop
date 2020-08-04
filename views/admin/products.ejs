@@ -1,0 +1,40 @@
+<%- include("../includes/header.ejs") %>
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/items.css">
+</head>
+
+<body>
+
+    <%- include("../includes/navigation.ejs") %>
+
+    <main>
+       
+        <div class="grid">
+            <% for(let el of products){ %>
+            <div class="card">
+                <div class="card__image">
+                    <img src="/<%= el.imageUrl %>" alt="">
+                </div>
+                <div class="card__content">
+                    <h3 class="card__title"><%= el.title %></h3>
+                    <p class="card__price">$<%= el.price %></p>
+                    <p class="card__description"><%= el.description %></p>
+                </div>
+                <div class="card__actions">
+                    <a class="btn btn--edit" href="/admin/edit-product/<%= el._id %>?edit=true">Edit</a>
+                    <form action="/admin/delete-product" method="post">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                        <input type="hidden" name="id" value="<%= el._id %>">
+                        <button class="btn btn--delete" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
+
+
+        </div>
+         <%- include("../includes/pagination.ejs",{previousPage : previousPage,nextPage : nextPage ,hasNextPage : hasNextPage , hasPreviousPage : hasPreviousPage , currentPage:currentPage}) %>
+    </main>
+
+    <%- include("../includes/end.ejs") %>

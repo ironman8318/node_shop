@@ -1,0 +1,5 @@
+<form action="/cart" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <input type="hidden" name="id" value="<%= el._id %>">
+    <button type="submit" style="<% if(special) { %> width:auto <% } %>" class="btn btn--cart">Add to cart</button>
+</form>

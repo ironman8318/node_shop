@@ -1,0 +1,28 @@
+<%- include("../includes/header.ejs") %>
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/product.css">
+<link rel="stylesheet" href="/css/items.css">
+
+</head>
+
+<body>
+
+    <%- include("../includes/navigation.ejs") %>
+
+    <main>
+        <div class="product">
+
+            <img src="/<%= product.imageUrl %>" alt="" class="product__image">
+            <div class="product__details">
+                <h3 class="title"><%= product.title %></h3>
+                <p class="product__price">$<%= product.price %></p>
+                <p class="product__description"><%= product.description %></p>
+                <%- include("../includes/addToCart.ejs" , {el : product,special:true}) %>
+            </div>
+
+
+        </div>
+    </main>
+
+    <%- include("../includes/end.ejs") %>

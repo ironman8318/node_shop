@@ -1,0 +1,43 @@
+<%- include("../includes/header.ejs") %>
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/cart.css">
+<link rel="stylesheet" href="/css/items.css">
+
+</head>
+
+<body>
+
+    <%- include("../includes/navigation.ejs") %>
+
+    <main>
+       
+        <% for(let prod of products){ %>
+        <div class="cart">
+            <img class="cart__image" src="<%= prod.productId.imageUrl %>" >
+            <div class="cart__content">
+                <h4 class="cart__title"><%= prod.productId.title %></h4>
+                <p class="cart__price">Price : <span> $<%= prod.productId.price %></span></p>
+                <p class="cart__qty">Quantity:<span><%= prod.quantity %></span></p>
+
+                <form action="/delete-cart" method="post">
+                    <input type="hidden" name="_csrf" value=<%=csrfToken%> />
+                    <input type="hidden" name="id" value="<%= prod.productId._id %>">
+                    <button style="width:30%" class="btn btn--delete" type="submit">Delete</button>
+                </form>
+            </div>
+
+            <img src="<%= prod.imageUrl %>" alt="" class="cart__image">
+        </div> 
+        <% } %>
+        <% if(products.length>0) { %>
+         <form action="/order" method="post" class="orderBtn">
+            <input type="hidden" name="_csrf" value=<%=csrfToken%> />
+            <button style="margin:0 auto" type="submit" class="btn btn--edit">Order</button>
+        </form>
+        <% }else{ %>
+        <h2 style="text-align : center">Cart is empty </h2>
+        <% } %>
+    </main>
+
+    <%- include("../includes/end.ejs") %>

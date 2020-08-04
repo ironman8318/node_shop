@@ -1,0 +1,73 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 56.25em) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media (max-width: 37.25em) {
+    html {
+        font-size: 57%;
+    }
+}
+
+/*
+
+@media (max-width: 56.25em) {
+    html {
+        font-size: 60%;
+    }
+}*/
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: var(--color-grey-dark-1);
+}
+
+:root {
+    --color-primary: #f8620b;
+    --color-primary-light: #f9823d;
+    --color-primary-dark: #ca4e06;
+
+    --color-grey-light-1: #7f7f7f;
+    --color-grey-light-2: #c3c3c3;
+    --color-grey-light-3: #ededed;
+
+    --color-grey-dark-1: #3b3b3b;
+    --color-grey-dark-2: #191919;
+
+    --color-secondary: #2411e9;
+    --color-secondary-light: #4c3cf1;
+    --color-secondary-dark: #1d0eba;
+}
+
+body {
+    display: grid;
+    grid-template-columns:
+        [full-start]1fr[center-start]repeat(
+            8,
+            [col-start] minmax(min-content, 15rem) [col-end]
+        )
+        [center-end] 1fr [full-end];
+}
+
+main {
+    grid-column: center-start/center-end;
+    margin-top: 5rem;
+    /* display: grid; */
+    /* grid-template-columns: repeat(8, [col-start] 1fr [col-end]); */
+}

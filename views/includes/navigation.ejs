@@ -1,0 +1,99 @@
+<header class="header">
+        <nav class="header__nav">
+                <input id="check" type="checkbox" class="nav__checkbox">
+                <label style="margin-left:-2rem" for="check" class="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </label>
+                <ul class="header__list">
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/'?'active':'' %>"
+                                        href="/">Shop</a>
+                        </li>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/products'?'active':'' %>"
+                                        href="/products">Products</a>
+                        </li>
+                        <% if(isLoggedIn) { %>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/cart'?'active':'' %>"
+                                        href="/cart">Cart</a>
+                        </li>
+                        <li class="header__list-item"><a
+                                        class="header__list-link <%=path=='/admin/add-product'?'active':'' %>"
+                                        href="/admin/add-product">Add Product</a></li>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/orders'?'active':'' %>"
+                                        href="/order">Orders</a></li>
+                        <li class="header__list-item"><a
+                                        class="header__list-link <%=path=='/admin/products'?'active':'' %>"
+                                        href="/admin/products">Admin Product</a></li>
+                        <% } %>
+
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/about'?'active':'' %>"
+                                        href="/about">About</a>
+                        </li>
+                </ul>
+
+                <ul class="header__list">
+
+                        <% if(isLoggedIn) { %>
+                        <li class="header__list-item">
+                                <form action="/logout" method="POST" >
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                                        <button class="logout_btn" type=" submit">Logout</button>
+                                </form>
+                        </li>
+                        <% }else { %>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/login'?'active':'' %>"
+                                        href="/login">Login</a></li>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/signup'?'active':'' %>"
+                                        href="/signup">Sign up</a></li>
+                        <% } %>
+                </ul>
+        </nav>
+</header>
+
+<div class="backdrop"></div>
+<header class="sidebar">
+        <nav class="header__nav">
+                <ul class="header__list">
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/'?'active':'' %>"
+                                        href="/">Shop</a>
+                        </li>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/products'?'active':'' %>"
+                                        href="/products">Products</a>
+                        </li>
+                        <% if(isLoggedIn) { %>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/cart'?'active':'' %>"
+                                        href="/cart">Cart</a>
+                        </li>
+                        <li class="header__list-item"><a
+                                        class="header__list-link <%=path=='/admin/add-product'?'active':'' %>"
+                                        href="/admin/add-product">Add Product</a></li>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/orders'?'active':'' %>"
+                                        href="/order">Orders</a></li>
+                        <li class="header__list-item"><a
+                                        class="header__list-link <%=path=='/admin/products'?'active':'' %>"
+                                        href="/admin/products">Admin Product</a></li>
+                        <% } %>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/about'?'active':'' %>"
+                                        href="/about">About</a>
+                        </li>
+                </ul>
+
+                <ul class="header__list">
+
+                        <% if(isLoggedIn) { %>
+                        <li class="header__list-item">
+                                <form action="/logout" method="POST" >
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                                        <button class="logout_btn" type=" submit">Logout</button>
+                                </form>
+                        </li>
+                        <% }else { %>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/login'?'active':'' %>"
+                                        href="/login">Login</a></li>
+                        <li class="header__list-item"><a class="header__list-link <%=path=='/signup'?'active':'' %>"
+                                        href="/signup">Sign up</a></li>
+                        <% } %>
+                </ul>
+        </nav>
+</header>

@@ -1,0 +1,36 @@
+<%- include("../includes/header.ejs") %>
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/items.css">
+<title>Document</title>
+</head>
+
+<body>
+    <%- include("../includes/navigation.ejs") %>
+
+
+    <main>
+        <form action="/signup/" method="POST" class="form">
+            <% if(errorMessage.length>0){%>
+            <p class="notification notification--error"><%= errorMessage %></p>
+            <% } %>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <div class="input__group">
+                <label for="" class="title">Email</label>
+                <input class=" <%= errors.find(el => el.param ==='email')?'invalid':'' %>" type="text" name="email"
+                    value="<%= preFill?data.email:null %>">
+            </div>
+            <div class="input__group">
+                <label for="" class="title">Password</label>
+                <input type="password" class=" <%= errors.find(el => el.param ==='password')?'invalid':'' %>"
+                    name="password" value="<%= preFill?data.password:null %>">
+            </div>
+            <div class="input__group">
+                <label for="" class="title"> Confirm Password</label>
+                <input type="password" class=" <%= errors.find(el => el.param ==='confirmPassword')?'invalid':'' %>"
+                    name="confirmPassword" value="<%= preFill?data.confirmPassword:null %>">
+            </div>
+            <button type="submit" class="btn btn--edit">Sign up</button>
+        </form>
+    </main>
+    <%- include("../includes/end.ejs") %>
