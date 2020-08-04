@@ -112,7 +112,7 @@ app.use((error, req, res, next) => {
 mongoose
     .connect("mongodb://shop:shop1234@ds139781.mlab.com:39781/node-shop")
     .then((res) => {
-        app.listen(3000||process.env.PORT);
+        app.listen(process.env.PORT||3000);
     })
     .catch((err) => {
         console.log(err);
