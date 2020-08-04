@@ -59,7 +59,7 @@ app.use(
 );
 
 app.use(express.static(path.join(rootDir, "public")));
-app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/images", express.static(path.join(rootDir, "images")));
 app.use(
     session({
         secret: "hello everyone what the duck is this",
