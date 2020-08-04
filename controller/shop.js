@@ -1,6 +1,6 @@
 const Product = require("../models/product");
 const User = require("../models/user");
-const Order = require("../models/Order");
+const Order = require("../models/order");
 const path = require("path");
 const fs = require("fs");
 const ITEMS_PER_PAGE = 4;
