@@ -30,7 +30,7 @@ const fileStorage = multer.diskStorage({
         cb(null, new Date().getTime() + file.originalname);
     },
     destination: (req, file, cb) => {
-        cb(null, path.join("__dirname","images"));
+        cb(null, path.join(__dirname,"images"));
     },
 });
 
