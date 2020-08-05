@@ -27,9 +27,11 @@ const store = new mongoSessionStore({
 
 const fileStorage = multer.diskStorage({
     filename: (req, file, cb) => {
+        console.log(file);
         cb(null, new Date().getTime() + file.originalname);
     },
     destination: (req, file, cb) => {
+        console.log(file)
         cb(null,path.join(".", "images"));
     },
 });
