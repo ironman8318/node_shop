@@ -16,7 +16,7 @@ exports.postAddProduct = (req, res, next) => {
     const title = req.body.title;
     const price = +req.body.price;
     const description = req.body.description;
-    console.log(req.file);  
+    console.log(req);  
     const imageUrl = req.file.path;
     
     const errors = validationResult(req);
