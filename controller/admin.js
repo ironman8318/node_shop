@@ -153,7 +153,7 @@ exports.postDeleteProduct = (req, res, next) => {
             return Product.findByIdAndRemove(id);
         })
         .then((resa) => {
-            res.redirect("/admin/delete-product");
+            res.redirect("/");
         })
         .catch((err) => {
             const error = new Error(err);
