@@ -56,7 +56,7 @@ app.use(
 
 app.use(
     multer({
-        storage: fileStorage
+        Storage: fileStorage
     }).single("image")
 );
 
