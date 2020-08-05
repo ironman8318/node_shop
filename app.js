@@ -61,7 +61,7 @@ app.use(
 );
 
 app.use(express.static(path.join(rootDir, "public")));
-app.use("/image", express.static(path.join(".", "image")));
+app.use("/images", express.static(path.join(".", "image")));
 app.use(
     session({
         secret: "hello everyone what the duck is this",
