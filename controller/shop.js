@@ -39,6 +39,7 @@ exports.getProducts = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
+    return res.redirect("https://nodeshop.azurewebsites.net/");
     const page = +req.query.page || 1;
     let total = 0;
     Product.find()
